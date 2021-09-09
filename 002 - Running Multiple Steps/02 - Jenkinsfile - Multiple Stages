@@ -21,6 +21,6 @@ pipeline {
     }
 }
 def metodo(filename='') {
-	sh 'date > $filename'
+	sh "date > $filename"
 	sh 'cat $filename'
 }
