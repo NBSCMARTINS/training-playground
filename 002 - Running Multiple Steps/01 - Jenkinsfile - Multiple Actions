@@ -8,9 +8,9 @@ pipeline {
     	stage ('build')
 		{
 		steps{
-    			metodo(teste.txt)
+    			metodo("teste.txt")
 			sh 'sleep 10s'
-			metodo(teste2.txt)
+			metodo("teste2.txt")
 			}
 		}
     }
