@@ -3,7 +3,22 @@ pipeline {
 		docker { 
 			image 'alpine:latest' 
 		}
+		parameters{
+		choice(name: 'CHOICES', choices: ['build', 'test'], description: ''}
+		}
 	}
     stages {
-    }
+    		stage('build') {
+			when {
+			environment name: 'CHOICES', value: 'build'
+			}
+			echo 'BUILD'
+		}
+		stage ('test') {
+			when {
+			environment name: 'CHOICES', value: 'test'
+			}
+			echo 'TEST'
+		}
+    }	
 }
