@@ -4,6 +4,23 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
-    stages {
+    stages{
+    	stage ('build')
+		{
+		steps{
+			metodo("teste.txt")
+			}
+		}
+	stage ('teste')
+		{
+		steps{
+		sh "cat teste.txt | grep 2021"
+		}
+		}
+	
     }
+}
+def metodo(filename='') {
+	sh 'date > $filename'
+	sh 'cat $filename'
 }
